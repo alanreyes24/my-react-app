@@ -3,8 +3,13 @@ import { useState } from "react";
 function Square({ value, onSquareClick }) {
   function handleClick(i) {
     const nextSquares = squares.slice();
-    nextSquares[i] = "X";
+    if (xIsNext) {
+      nextSquares[i] = "X";
+    } else {
+      nextSquares[i] = "O";
+    }
     setSquares(nextSquares);
+    setXIsNext(!xIsNext);
   }
 
   return (
