@@ -1,12 +1,17 @@
 import { useState } from "react";
 
 function Square({ value, onSquareClick }) {
+  function handleClick() {
+    const nextSquares = squares.slice();
+    nextSquares[0] = "X";
+    setSquares(nextSquares);
+  }
+
   return (
     <button className="square" onClick={onSquareClick}>
       {value}
     </button>
   );
-}
 }
 
 export default function Board() {
